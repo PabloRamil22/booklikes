@@ -59,5 +59,14 @@ public class Book {
         this.descripcion = descripcion;
     }
 
-
+    @Override
+    public String toString() {
+        return "Book{" +
+                "idLibro=" + idLibro +
+                ", autor='" + autor + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", fecha_creacion=" + fecha_creacion +
+                ", descripcion='" + descripcion + '\'' +
+                '}';
+    }
 }
