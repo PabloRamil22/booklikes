@@ -2,7 +2,7 @@ package com.ceica.booklikes.models;
 
 import java.util.Date;
 
-public class Book {
+public class Book extends ModeloBase{
 
     private int idLibro;
     private String autor;
@@ -10,6 +10,8 @@ public class Book {
     private Date fecha_creacion;
 
     private String descripcion;
+
+    private User id_usuario;
 
     public Book() {
     }
@@ -59,6 +61,14 @@ public class Book {
         this.descripcion = descripcion;
     }
 
+    public User getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(User id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
     @Override
     public String toString() {
         return "Book{" +
@@ -67,6 +77,12 @@ public class Book {
                 ", titulo='" + titulo + '\'' +
                 ", fecha_creacion=" + fecha_creacion +
                 ", descripcion='" + descripcion + '\'' +
+                ", id_usuario=" + id_usuario +
                 '}';
+    }
+
+    @Override
+    protected String getNombreTabla() {
+        return "libros";
     }
 }
