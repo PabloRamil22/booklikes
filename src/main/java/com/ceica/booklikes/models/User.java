@@ -81,7 +81,7 @@ public class User extends ModeloBase {
     public User login(String nombre, String password){
         User user=new User();
         Connection conn=user.getConnection();
-        String sql="select idusuario,nombre,password from  booklikes\n" +
+        String sql="select idusuario,nombre,password from  usuarios\n" +
                 "where nombre=? and password=?";
         try {
             PreparedStatement pst=conn.prepareStatement(sql);

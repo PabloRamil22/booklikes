@@ -19,7 +19,7 @@ public class Book extends ModeloBase{
 
     private String descripcion;
 
-    private User id_usuario;
+    private int id_usuario;
 
     public Book() {
     }
@@ -69,11 +69,11 @@ public class Book extends ModeloBase{
         this.descripcion = descripcion;
     }
 
-    public User getId_usuario() {
+    public int getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(User id_usuario) {
+    public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
 

@@ -17,8 +17,14 @@ public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        //booklikeController booklikeController = new booklikeController();
+        User user =new User();
+        user.getConnection();
+
+        booklikeController booklikeController = new booklikeController();
         //booklikeController.createUser( 5, "Pepe", "123456");
+        booklikeController.login("Sonia", "98978");
+        booklikeController.createBook("Quevedo", "Ya cayó la noche", "Una noche muy romántica");
+
 
 
 

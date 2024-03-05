@@ -23,18 +23,18 @@ public class booklikeController {
 
     }
 
-    public boolean createUser( int idusuario, String nombre, String password){
+    public boolean createUser( String nombre, String password){
         User user=new User(nombre, password);
-        return user.insertar("(idusuario,nombre,password) values (?,?,?)", idusuario,nombre,password);
+        return user.insertar("(nombre,password) values(?,?)",nombre,password);
     }
     public List<User>getallUser(){
         User user=new User();
         return user.getallUser();
     }
 
-    public boolean createBook(String autor, String titulo, LocalDate fecha_cracion,String descripcion){
+    public boolean createBook(String autor, String titulo,String descripcion){
         Book book = new Book();
-        return book.insertar("(autor, titulo, fecha_cracion, descripcion, idusuario) values(?,?,?,?,?)", autor,titulo,fecha_cracion,descripcion,userLogged.getIdusuario());
+        return book.insertar("(autor, titulo, descripcion, id_usuario) values(?,?,?,?)", autor,titulo,descripcion,userLogged.getIdusuario());
 
     }
 
@@ -55,9 +55,9 @@ public class booklikeController {
         return new Book().actualizar("descripcion=? where titulo = ?", descripcion, titulo);
     }
 
-    public boolean createFavoriteBook(int idLibro, int idUsuario, LocalDate fecha_favorito){
+    public boolean createFavoriteBook(int idLibro, int idUsuario){
         FavoriteBooks favoriteBooks=new FavoriteBooks();
-        return favoriteBooks.insertar("(idlibro, idusuario, fecha_favorito) values(?,?,?)", idLibro, idUsuario, fecha_favorito);
+        return favoriteBooks.insertar("(idlibro, idusuario) values(?,?)", idLibro, idUsuario);
     }
     public boolean deleteFavoriteBook(int id_favorito){
         return new FavoriteBooks().borrar("id_favorito=?", id_favorito);
