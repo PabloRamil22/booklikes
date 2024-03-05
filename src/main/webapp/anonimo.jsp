@@ -16,8 +16,10 @@
         <img src="assets/images/booklikes.jpg" alt="">
     </div>
     <div>
-        <button type="submit" class="button button-block">Iniciar Sesión</button>
-        <button type="submit" class="button button-block">Registrar</button>
+        <!-- Enlace para ir a la vista de inicio de sesión -->
+        <a href="assets/index.jsp" class="button button-block">Iniciar Sesión</a>
+        <!-- Enlace para ir a la vista de registro -->
+        <a href="assets/index.jsp" class="button button-block">Registrar</a>
     </div>
     <div>
         <h2>Lista de Libros</h2>
