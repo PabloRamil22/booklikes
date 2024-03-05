@@ -12,14 +12,17 @@
         <link rel="stylesheet" href="assets/ccs/css3.css">
     </head>
     <body>
+    <div>
+        <img src="assets/images/booklikes.jpg" alt="">
+    </div>
+
     <div class="form">
         <ul class="tab-group">
             <li class="tab active"><a href="javascript:void(0);" onclick="mostrarFormulario('signup')">Registro</a></li>
             <li class="tab"><a href="javascript:void(0);" onclick="mostrarFormulario('login')">Logearse</a></li>
         </ul>
-
         <div class="tab-content">
-            <div id="signup" style="display: block;">
+            <div id="signup" class="cont" style="display: block;">
                 <!-- Formulario de Registro -->
                 <form action="RegistroServlet" method="post">
                     <div class="top-row">
@@ -44,7 +47,7 @@
                 </form>
             </div>
 
-            <div id="login" style="display: none;">
+            <div id="login" class="cont" style="display: none;">
                 <!-- Formulario de Inicio de Sesión -->
                 <form action="LoginServlet" method="post">
                     <div class="field-wrap">
@@ -61,7 +64,7 @@
         </div>
     </div>
 
-    <script src="scripts.js"></script>
+    <script src="assets/js/blikes.js"></script>
     </body>
     </html>
 
