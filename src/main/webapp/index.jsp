@@ -1,14 +1,45 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JSP - Hello World</title>
+  <meta charset="UTF-8">
+  <title>Lista de Libros</title>
 </head>
 <body>
+<h1>Lista de Libros</h1>
+<table>
+  <tr>
+    <th> Id</th>
+    <th>Título</th>
+    <th>Descripción</th>
+    <th>Autor</th>
+    <th>Favoritos</th>
+  </tr>
+<tbody id="tableTask">
+<c:choose>
+  <c:when test="${empty listaLibros}">
+    <tr>
+      <td colspan="3">No hay Libros .</td>
+    </tr>
+  </c:when>
+  <c:otherwise>
+    <c:forEach items="${listaLibros}" var="libro">
+      <tr>
+        <td><c:out value="${libro.id}"/></td>
+        <td><c:out value="${libro.titulo}"/></td>
+        <td><c:out value="${libro.descripcion}"/></td>
+        <td><c:out value="${libro.autor}" /></td>
+        <td><c:out value="${libro.favoritos}" /></td>
 
-Pagina de entrada
-<h1><%= "Hello World!" %></h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+      </tr>
+    </c:forEach>
+  </c:otherwise>
+</c:choose>
+</tbody>
+
+</table>
 </body>
 </html>
