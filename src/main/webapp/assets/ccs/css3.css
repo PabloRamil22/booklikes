@@ -1,0 +1,112 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tab-group {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.tab-group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tab {
+    float: left;
+    width: 50%;
+    margin-bottom: -1px;
+}
+
+.tab a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    background: #007BFF;
+    color: #ffffff;
+    font-size: 18px;
+    float: left;
+    transition: 0.5s;
+}
+
+.tab a:hover {
+    background: #0056b3;
+}
+
+.tab.active a {
+    background: #ffffff;
+    color: #007BFF;
+}
+
+.tab-content {
+    padding: 15px;
+    border: 1px solid #007BFF;
+    border-radius: 0 0 5px 5px;
+}
+
+.field-wrap {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    color: #666;
+}
+
+input {
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #007BFF;
+    color: #666;
+}
+
+input:focus {
+    outline: none;
+}
+
+.button {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #007BFF;
+    color: #ffffff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.button:hover, .button:focus {
+    background: #0056b3;
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+.req {
+    color: #e74c3c;
+    margin-bottom: 5px;
+}
+
+.forgot {
+    margin-top: -20px;
+    text-align: right;
+}
