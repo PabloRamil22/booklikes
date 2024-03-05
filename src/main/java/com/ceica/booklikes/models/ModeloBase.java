@@ -24,8 +24,8 @@ public abstract class ModeloBase {
             USUARIO = propiedades.getProperty("db.usuario");
             PASSWORD = propiedades.getProperty("db.password");
         } catch (IOException e) {
-            URL="jdbc:mysql://localhost:3306/task";
-            USUARIO="task";
+            URL="jdbc:mysql://localhost:3306/booklikes";
+            USUARIO="root";
             PASSWORD="1234";
         }
     }
