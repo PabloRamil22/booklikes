@@ -26,18 +26,10 @@
                 <!-- Formulario de Registro -->
                 <form action="RegistroServlet" method="post">
                     <div class="top-row">
-                        <div class="field-wrap">
-                            <label>Nombres<span class="req">*</span></label>
-                            <input type="text" name="nombres" required autocomplete="off" />
-                        </div>
-                        <div class="field-wrap">
-                            <label>Apellidos<span class="req">*</span></label>
-                            <input type="text" name="apellidos" required autocomplete="off" />
-                        </div>
                     </div>
                     <div class="field-wrap">
-                        <label>Dirección Email<span class="req">*</span></label>
-                        <input type="email" name="email" required autocomplete="off" />
+                        <label>Nombre de Usuario<span class="req">*</span></label>
+                        <input type="text" name="email" required autocomplete="off" />
                     </div>
                     <div class="field-wrap">
                         <label>Crear Password<span class="req">*</span></label>
@@ -47,21 +39,19 @@
                 </form>
             </div>
 
-            <div id="login" class="cont" style="display: none;">
-                <!-- Formulario de Inicio de Sesión -->
-                <form action="LoginServlet" method="post">
-                    <div class="field-wrap">
-                        <label>Dirección Email<span class="req">*</span></label>
-                        <input type="email" name="email" required autocomplete="off" />
-                    </div>
-                    <div class="field-wrap">
-                        <label>Password<span class="req">*</span></label>
-                        <input type="password" name="password" required autocomplete="off" />
-                    </div>
-                    <button type="submit" class="button button-block">Iniciar Sesión</button>
-                </form>
-            </div>
+            <form action="user.jsp" method="post">
+                <div class="field-wrap">
+                    <label>Nombre Usuario<span class="req">*</span></label>
+                    <input type="text" name="name" required autocomplete="off" />
+                </div>
+                <div class="field-wrap">
+                    <label>Password<span class="req">*</span></label>
+                    <input type="password" name="password" required autocomplete="off" />
+                </div>
+                <button type="submit" class="button button-block">Iniciar Sesión</button>
+            </form>
         </div>
+    </div>
     </div>
 
     <script src="assets/js/blikes.js"></script>
