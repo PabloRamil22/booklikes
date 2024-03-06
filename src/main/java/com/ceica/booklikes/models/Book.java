@@ -131,16 +131,17 @@ public class Book extends ModeloBase{
         Book book = new Book();
         List<Book>bookList = new ArrayList<>();
         Connection conn = book.getConnection();
-        String sql = "select idlibro, titulo, autor\n" +
+        String sql = "select idlibro, titulo, autor,descripcion\n" +
                 "from libros;";
         try {
             Statement stm = conn.createStatement();
             ResultSet resultSet = stm.executeQuery(sql);
             while(resultSet.next()){
                 Book book1 = new Book();
-                book1.setIdLibro(resultSet.getInt("libro"));
+                book1.setIdLibro(resultSet.getInt("idlibro"));
                 book1.setTitulo(resultSet.getString("titulo"));
                 book1.setTitulo(resultSet.getString("autor"));
+                book1.setDescripcion(resultSet.getString("descripcion"));
                 bookList.add(book1);
             }
         } catch (SQLException e) {

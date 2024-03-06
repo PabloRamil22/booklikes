@@ -32,6 +32,16 @@ public class booklikeController {
         return user.getallUser();
     }
 
+    public List<Book> getallBook(){
+        Book book= new Book();
+        return book.getAllBooks();
+    }
+
+    public List<BookDto> getallFavoriteBook(){
+        Book book=new Book();
+        return book.getallFavoriteBooks();
+    }
+
     public boolean createBook(String autor, String titulo,String descripcion){
         Book book = new Book();
         return book.insertar("(autor, titulo, descripcion, id_usuario) values(?,?,?,?)", autor,titulo,descripcion,userLogged.getIdusuario());

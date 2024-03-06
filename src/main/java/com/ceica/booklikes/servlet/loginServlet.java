@@ -39,7 +39,7 @@ public class loginServlet extends HttpServlet {
         booklikeController booklikeController=new booklikeController();
         if (booklikeController.login(user,pass)){
             HttpSession session= request.getSession();
-            session.setAttribute("usuarios", booklikeController.userLogged);
+            session.setAttribute("user", booklikeController.userLogged);
             response.sendRedirect("user");
 
         }else{

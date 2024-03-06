@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>
-    Usuario!!!
+    <p>${nombre}</p>
 </h1>
 </body>
 </html>
