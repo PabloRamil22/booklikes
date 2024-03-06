@@ -98,7 +98,7 @@ input:focus {
 
 .button-block {
     display: block;
-    width: 100%;
+    width: 20%;
 }
 
 .req {
@@ -109,4 +109,8 @@ input:focus {
 .forgot {
     margin-top: -20px;
     text-align: right;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
 }
