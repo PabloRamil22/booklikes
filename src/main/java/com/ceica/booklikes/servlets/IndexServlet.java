@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "indexServlet", value = "")
+@WebServlet(name = "indexServlet", value = "/login")
 
 public class IndexServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class IndexServlet extends HttpServlet {
 
 
         request.setAttribute("listaLibros",list);
-        request.getRequestDispatcher("index.jsp").forward(request,response);
+        request.getRequestDispatcher("login.jsp").forward(request,response);
     }
 
 

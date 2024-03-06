@@ -7,6 +7,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Lista de Libros</title>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <h1>Lista de Libros</h1>
@@ -41,5 +43,8 @@
 </tbody>
 
 </table>
+
+
+
 </body>
 </html>
