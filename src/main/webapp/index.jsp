@@ -21,9 +21,9 @@
     </div>
     <div>
         <!-- Enlace para ir a la vista de inicio de sesión -->
-        <a href="assets/login.jsp" class="button button-block">Iniciar Sesión</a>
+        <a href="login" class="button button-block">Iniciar Sesión</a>
         <!-- Enlace para ir a la vista de registro -->
-        <a href="assets/register.jsp" class="button button-block">Registrar</a>
+        <a href="register" class="button button-block">Registrar</a>
     </div>
     <div>
         <table>
