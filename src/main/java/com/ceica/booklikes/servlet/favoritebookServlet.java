@@ -27,9 +27,9 @@ public class favoritebookServlet extends HttpServlet {
             booklikeController booklikeController=new booklikeController();
             booklikeController.userLogged=user;
             List<BookDto> bookDtoList=booklikeController.getallFavoriteBook();
-            request.setAttribute("nombre",user.getNombre());
-            request.setAttribute("book", bookDtoList );
-            request.getRequestDispatcher("user.jsp").forward(request,response);
+            request.setAttribute("name",user.getNombre());
+            request.setAttribute("favoritebook", bookDtoList );
+            request.getRequestDispatcher("favoritebook.jsp").forward(request,response);
 
 
         }

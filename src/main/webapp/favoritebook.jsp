@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Favorites Book</title>
 </head>
 <body>
-
+<p>${nombre}</p>
+<p>${book}</p>
 </body>
 </html>
