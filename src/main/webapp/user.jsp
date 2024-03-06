@@ -13,6 +13,7 @@
 <body>
 <h1>
     <p>${nombre}</p>
+    <p>${book}</p>
 </h1>
 </body>
 </html>

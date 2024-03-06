@@ -19,7 +19,7 @@ public class favoritebookServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        User user = (User) request.getSession().getAttribute("bookfavorite");
+        User user = (User) request.getSession().getAttribute("favoritebook");
         if (user == null) {
             response.sendRedirect("login");
         } else {
@@ -29,7 +29,7 @@ public class favoritebookServlet extends HttpServlet {
             List<BookDto> bookDtoList=booklikeController.getallFavoriteBook();
             request.setAttribute("nombre",user.getNombre());
             request.setAttribute("book", bookDtoList );
-            request.getRequestDispatcher("Aquí hay que poner el .jsp que corresponda").forward(request,response);
+            request.getRequestDispatcher("user.jsp").forward(request,response);
 
 
         }
