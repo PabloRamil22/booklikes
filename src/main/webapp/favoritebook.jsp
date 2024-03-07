@@ -11,7 +11,7 @@
     <title>Favorites Book</title>
 </head>
 <body>
-<p>${nombre}</p>
-<p>${book}</p>
+<p>${name}</p>
+<p>${favoritebook}</p>
 </body>
 </html>

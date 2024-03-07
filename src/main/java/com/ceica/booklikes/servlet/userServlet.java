@@ -28,7 +28,7 @@ public class userServlet extends HttpServlet {
                 booklikeController.userLogged=user;
                 List<Book>bookList=booklikeController.getallBook();
                 request.setAttribute("nombre",user.getNombre());
-                request.setAttribute("book", bookList );
+                request.setAttribute("listaLibros", bookList );
                 request.getRequestDispatcher("user.jsp").forward(request,response);
 
 
@@ -37,7 +37,7 @@ public class userServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
-            response.sendRedirect("user");
+            response.sendRedirect("login");
         } else {
             booklikeController booklikeController=new booklikeController();
             booklikeController.userLogged=user;
