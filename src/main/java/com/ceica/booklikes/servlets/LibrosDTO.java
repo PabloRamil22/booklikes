@@ -23,9 +23,6 @@ public class LibrosDTO {
     private int favoritos;
     private String descripcion;
 
-    public String getTitulo() {
-        return titulo;
-    }
     public int getId() {
         return id;
     }
