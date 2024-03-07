@@ -72,7 +72,7 @@
     <tr>
         <td><c:out value="${libro.idLibro}"/></td>
         <td><c:out value="${libro.titulo}"/></td>
-        <td><c:out value="${libro.descripcion}"/></td>
+        <td><c:out value="${libro.descripcion}"/></td
         <td><c:out value="${libro.autor}"/></td>
 
         <td>

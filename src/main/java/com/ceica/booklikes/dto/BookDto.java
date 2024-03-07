@@ -7,27 +7,30 @@ import java.util.Date;
 public class BookDto {
 
 
-    private int idLibro;
+    private int idlibro;
     private String autor;
     private String titulo;
     private int favoritos;
 
-    public BookDto(int idLibro, String autor, String titulo, int favoritos) {
-        this.idLibro = idLibro;
+    private String nombre;
+
+    public BookDto(int idlibro, String autor, String titulo, int favoritos, String nombre) {
+        this.idlibro = idlibro;
         this.autor = autor;
         this.titulo = titulo;
         this.favoritos = favoritos;
+        this.nombre = nombre;
     }
 
     public BookDto() {
     }
 
-    public int getIdLibro() {
-        return idLibro;
+    public int getIdlibro() {
+        return idlibro;
     }
 
-    public void setIdLibro(int idLibro) {
-        this.idLibro = idLibro;
+    public void setIdlibro(int idLibro) {
+        this.idlibro = idLibro;
     }
 
     public String getAutor() {
@@ -55,5 +58,22 @@ public class BookDto {
         this.favoritos = favoritos;
     }
 
+    public String getName() {
+        return nombre;
+    }
 
+    public void setName(String name) {
+        this.nombre = nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "BookDto{" +
+                "idlibro=" + idlibro +
+                ", autor='" + autor + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", favoritos=" + favoritos +
+                ", nombre='" + nombre + '\'' +
+                '}';
+    }
 }

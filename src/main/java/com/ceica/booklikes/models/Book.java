@@ -98,14 +98,16 @@ public class Book extends ModeloBase{
         Book book= new Book();
         List<BookDto>bookDtoList = new ArrayList<>();
         Connection conn= book.getConnection();
-        String sql="select  count(*) as favoritos, l.autor, l.titulo, li.idlibro from libros as l inner join libros_favoritos as li on l.idlibro = li.idlibro\n" +
-                " group by li.idlibro,l.titulo;";
+        String sql="select   count(*) as favoritos, l.autor, l.titulo, li.idlibro \n" +
+                "                from libros as l inner join libros_favoritos as li on l.idlibro = li.idlibro\n" +
+                "                                group by l.autor, l.titulo, li.idlibro;";
         try {
             Statement st= conn.createStatement();
             ResultSet resultSet=st.executeQuery(sql);
             while (resultSet.next()){
                 BookDto bookDto1=new BookDto();
-                bookDto1.setIdLibro(resultSet.getInt("li.idlibro"));
+                bookDto1.setIdlibro(resultSet.getInt("li.idlibro"));
+
                 bookDto1.setAutor(resultSet.getString("l.autor"));
                 bookDto1.setTitulo(resultSet.getString("l.titulo"));
                 bookDto1.setFavoritos(resultSet.getInt("favoritos"));
@@ -149,4 +151,8 @@ public class Book extends ModeloBase{
         }
         return bookList;
     }
+
+
 }
+
+

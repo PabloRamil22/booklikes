@@ -5,6 +5,11 @@ import com.ceica.booklikes.models.Book;
 import com.ceica.booklikes.models.FavoriteBooks;
 import com.ceica.booklikes.models.User;
 
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -65,9 +70,36 @@ public class booklikeController {
         return new Book().actualizar("descripcion=? where titulo = ?", descripcion, titulo);
     }
 
-    public boolean createFavoriteBook(int idLibro, int idUsuario){
+    public int createFavoriteBook(int idLibro, int idUsuario){
         FavoriteBooks favoriteBooks=new FavoriteBooks();
-        return favoriteBooks.insertar("(idlibro, idusuario) values(?,?)", idLibro, idUsuario);
+        Connection conn=favoriteBooks.getConnection();
+        String sql="select * from libros_favoritos where idlibro=? and idUsuario=?";
+        PreparedStatement stm= null;
+        try {
+            stm = conn.prepareStatement(sql);
+            stm.setInt(1,idLibro);
+            stm.setInt(2,idUsuario);
+            ResultSet rs=stm.executeQuery();
+            if(rs.next()){
+                int idfavorito=rs.getInt("id_favorito");
+
+                favoriteBooks.borrar("id_favorito=?", idfavorito);
+            }else{
+                favoriteBooks.insertar("(idlibro, idusuario) values(?,?)", idLibro, idUsuario);
+            }
+            String sql2="select count(*) as favoritos from libros_favoritos where idlibro=?";
+            stm= conn.prepareStatement(sql2);
+            stm.setInt(1,idLibro);
+            ResultSet rs1=stm.executeQuery();
+            int fav=0;
+            if(rs1.next()){
+                fav=rs1.getInt("favoritos");
+            }
+            return fav;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
     public boolean deleteFavoriteBook(int id_favorito){
         return new FavoriteBooks().borrar("id_favorito=?", id_favorito);
