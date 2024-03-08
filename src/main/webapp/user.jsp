@@ -51,38 +51,20 @@
         </table>
     </div>
     <div>
-        <form action="AgregarLibroServlet" method="post">
+        <form action="addbookservlet" method="post">
+
+            <label for="autor">Autor:</label>
+            <input type="text" id="autor" name="autor" required>
             <label for="titulo">Título:</label>
             <input type="text" id="titulo" name="titulo" required>
 
             <label for="descripcion">Descripción:</label>
             <textarea id="descripcion" name="descripcion" required></textarea>
 
-            <label for="autor">Autor:</label>
-            <input type="text" id="autor" name="autor" required>
-
-            <label for="favoritos">Favoritos:</label>
-            <input type="text" id="favoritos" name="favoritos" required>
 
             <button type="submit">Agregar Libro</button>
         </form>
     </div>
-
-    <c:forEach items="${listaLibros}" var="libro">
-    <tr>
-        <td><c:out value="${libro.idLibro}"/></td>
-        <td><c:out value="${libro.titulo}"/></td>
-        <td><c:out value="${libro.descripcion}"/></td
-        <td><c:out value="${libro.autor}"/></td>
-
-        <td>
-            <form action="EditarLibroServlet" method="post">
-                <input type="hidden" name="id" value="${libro.idLibro}">
-                <button type="submit">Editar</button>
-            </form>
-        </td>
-    </tr>
-    </c:forEach>
-
+</div>
 </body>
 </html>

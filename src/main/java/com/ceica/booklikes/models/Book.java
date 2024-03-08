@@ -141,8 +141,8 @@ public class Book extends ModeloBase{
             while(resultSet.next()){
                 Book book1 = new Book();
                 book1.setIdLibro(resultSet.getInt("idlibro"));
+                book1.setAutor(resultSet.getString("autor"));
                 book1.setTitulo(resultSet.getString("titulo"));
-                book1.setTitulo(resultSet.getString("autor"));
                 book1.setDescripcion(resultSet.getString("descripcion"));
                 bookList.add(book1);
             }
