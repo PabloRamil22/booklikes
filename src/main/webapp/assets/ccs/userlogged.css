@@ -114,3 +114,26 @@ input:focus {
     width: 80%;
     margin: 0 auto;
 }
+
+button {
+    padding: 10px;
+    background-color: #dc3545; /* Color de fondo rojo para el botón de eliminar */
+    color: #fff; /* Color del texto blanco para resaltar */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c82333; /* Cambia el color de fondo al pasar el mouse sobre el botón */
+}
+
+/* Ajustes de estilo para el botón de editar */
+button.edit {
+    background-color: #007bff; /* Color de fondo azul para el botón de editar */
+}
+
+button.edit:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el mouse sobre el botón de editar */
+}

@@ -11,22 +11,22 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.util.List;
-@WebServlet(name= "EditBookServlet" , value= "/editbookservlet" )
-public class EditBookServlet extends HttpServlet {
+
+@WebServlet(name= "DeleteBookServlet" , value= "/deletebookservlet" )
+public class DeleteBookServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
         booklikeController booklikeController = new booklikeController();
 
-        // Obtén el ID, el título y la nueva descripción del libro desde los parámetros de la solicitud
         String idLibro = request.getParameter("idLibro");
-        String titulo = request.getParameter("titulo");
-        String nuevaDescripcion = request.getParameter("nuevaDescripcion");
 
-        // Lógica para actualizar la descripción del libro
-       booklikeController.updateDescriptionBook(nuevaDescripcion, titulo);
-            response.sendRedirect("user");
+        booklikeController.deleteBook(Integer.parseInt(idLibro));
 
+        response.sendRedirect("user");
     }
 }
+
+

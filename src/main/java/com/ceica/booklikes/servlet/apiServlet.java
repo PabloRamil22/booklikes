@@ -17,13 +17,24 @@ import java.util.List;
 public class apiServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
-       int idlibro= Integer.parseInt(request.getParameter("idlibro"));
-       booklikeController likeController=new booklikeController();
-       likeController.userLogged=user;
-       int favoritos=likeController.createFavoriteBook(idlibro,user.getIdusuario());
-        PrintWriter out =response.getWriter();
-        String msg="{\"fav\":\""+favoritos+"\"}";
-        out.write(msg);
+        booklikeController likeController=new booklikeController();
+        likeController.userLogged=user;
+        if(request.getParameter("idLibro")!=null){
+            int idlibro= Integer.parseInt(request.getParameter("idlibro"));
+
+
+            int favoritos=likeController.createFavoriteBook(idlibro,user.getIdusuario());
+            PrintWriter out =response.getWriter();
+            String msg="{\"fav\":\""+favoritos+"\"}";
+            out.write(msg);
+        } else if (request.getParameter("borraridlibro")!=null) {
+            int idlibro= Integer.parseInt(request.getParameter("borraridlibro"));
+            likeController.deleteBook(idlibro);
+            PrintWriter out =response.getWriter();
+            String msg="{\"msg\":\"libro eliminado\"}";
+            out.write(msg);
+        }
+
 
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

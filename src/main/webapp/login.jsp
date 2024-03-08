@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Registro y Login</title>
-    <link rel="stylesheet" href="assets/css/css3.css">
+    <link rel="stylesheet" href="assets/ccs/userlogged.css">
 </head>
 <body>
 <div>

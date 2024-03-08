@@ -11,12 +11,13 @@
 <html>
 <head>
     <title>Vista de Usuario Logeado de BookLikes</title>
-    <link rel="stylesheet" href="assets/ccs/css3.css">
+    <link rel="stylesheet" href="assets/ccs/userlogged.css">
 </head>
 <body>
 <div class="container">
     <div>
-        <img src="assets/images/booklikes.jpg" alt="">
+     <a href="index.jsp"><img src="assets/images/booklikes.jpg" alt=""></a>
+        <a href = "favoritebook">Libros Favoritos</a>
     </div>
     <div>
         <table>
@@ -25,7 +26,6 @@
                 <th>Título</th>
                 <th>Descripción</th>
                 <th>Autor</th>
-                <th>Favoritos</th>
             </tr>
             <tbody id="tableTask">
             <c:choose>
@@ -41,8 +41,20 @@
                             <td><c:out value="${libro.titulo}"/></td>
                             <td><c:out value="${libro.descripcion}"/></td>
                             <td><c:out value="${libro.autor}"/></td>
+                            <td>
+                                <form action="editbookservlet" method="post">
+                                    <input type="hidden" name="idLibro" value="${libro.idLibro}">
+                                    <input type="hidden" name="titulo" value="${libro.titulo}">
+                                    <label for="nuevaDescripcion">Nueva Descripción:</label>
+                                    <textarea id="nuevaDescripcion" name="nuevaDescripcion" required></textarea>
+                                    <button class="edit" type="submit">Editar</button>
+                                </form>
+                            </td>
+                            <td>
 
+                                    <button onclick="borrar(${libro.idLibro})" type="button">Borrar</button>
 
+                            </td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>
@@ -66,5 +78,56 @@
         </form>
     </div>
 </div>
+<script>
+
+    function favorito(idLibro){
+        var baseUrl = window.location.protocol + "//" + window.location.host + "/BookLikes_war/api?idlibro="+idLibro;
+
+        fetch(baseUrl, {
+            method: 'GET', // Puedes cambiar este método según tu necesidad (POST, PUT, DELETE, etc.)
+            headers: {
+                'Content-Type': 'application/json', // Puedes ajustar el tipo de contenido según tu necesidad
+                //'Content-Type':'text',
+            },
+            // Puedes agregar otros parámetros como body si estás enviando datos
+        })
+            .then(response => response.json()) // Procesamos la respuesta como JSON
+            .then(data => {
+                let element="fav"+idLibro;
+                document.getElementById(element).innerText=data.fav;
+                console.log(data.fav); // Aquí puedes hacer lo que quieras con los datos
+
+
+
+            })
+            .catch(error => {
+                console.error('Error:', error); // Manejamos los errores
+            });
+    }
+
+    function borrar(idLibro){
+        var baseUrl = window.location.protocol + "//" + window.location.host + "/BookLikes_war/api?borraridlibro="+idLibro;
+
+        fetch(baseUrl, {
+            method: 'GET', // Puedes cambiar este método según tu necesidad (POST, PUT, DELETE, etc.)
+            headers: {
+                'Content-Type': 'application/json', // Puedes ajustar el tipo de contenido según tu necesidad
+                //'Content-Type':'text',
+            },
+            // Puedes agregar otros parámetros como body si estás enviando datos
+        })
+            .then(response => response.json()) // Procesamos la respuesta como JSON
+            .then(data => {
+
+                console.log(data); // Aquí puedes hacer lo que quieras con los datos
+                location.reload();
+
+
+            })
+            .catch(error => {
+                console.error('Error:', error); // Manejamos los errores
+            });
+    }
+</script>
 </body>
 </html>
